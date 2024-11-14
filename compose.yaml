@@ -1,0 +1,23 @@
+services:
+  web-app: # Definición del servicio llamado "web-app"
+    build:
+      context: . # Directorio actual donde se encuentra el Dockerfile
+      dockerfile: Dockerfile # Especifica el Dockerfile a usar para construir la imagen
+    container_name: react-app-vite # Nombre del contenedor personalizado
+    image: react-app-vite-image # Nombre de la imagen que se creará
+    ports:
+      - 5173:5173 # Mapea el puerto 5173 del contenedor al puerto 5173 de la máquina host
+    environment:
+      - CHOKIDAR_USEPOLLING=true # Variable de entorno "USEPOLLING" con valor "true" para el contenedor
+
+      # se trabaja en junto con app y app/node_modules
+    volumes:
+      # Sincroniza el directorio actual del host con /app dentro del contenedor,
+      # permitiendo que los cambios en el código fuente se reflejen en tiempo real.
+      - .:/app
+
+      # Monta un volumen para /app/node_modules para que las dependencias de node_modules
+      # dentro del contenedor persistan y no se sobrescriban por el directorio node_modules
+      # de tu máquina local, evitando conflictos y asegurando que el contenedor tenga acceso
+      # a las dependencias necesarias para ejecutar la aplicación correctamente.
+      - /app/node_modules
