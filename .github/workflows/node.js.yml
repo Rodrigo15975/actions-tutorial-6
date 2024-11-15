@@ -4,10 +4,13 @@
 name: Node.js CI
 
 on:
-  push:
-    branches: ['master']
-  pull_request:
-    branches: ['master']
+  schedule:
+    - cron: '* * * * *' # Ejecutar cada minuto
+      # '*' en el primer campo significa cada minuto
+      # '*' en el segundo campo significa cada hora
+      # '*' en el tercer campo significa que se ejecutará todos los días del mes
+      # '*' en el cuarto campo significa que se ejecutará todos los meses
+      # '*' en el quinto campo significa que se ejecutará todos los días de la semana
 
 jobs:
   build:
