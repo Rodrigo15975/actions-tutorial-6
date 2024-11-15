@@ -5,7 +5,7 @@ name: Node.js CI
 
 on:
   schedule:
-    - cron: '* * * * *' # Ejecutar cada minuto
+    - cron: '1 * * * *' # Ejecutar cada minuto
       # '*' en el primer campo significa cada minuto
       # '*' en el segundo campo significa cada hora
       # '*' en el tercer campo significa que se ejecutará todos los días del mes
