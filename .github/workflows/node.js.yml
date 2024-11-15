@@ -5,12 +5,12 @@ name: Node.js CI
 
 on:
   schedule:
-    - cron: '1 * * * *' # Ejecutar cada minuto
-      # '*' en el primer campo significa cada minuto
-      # '*' en el segundo campo significa cada hora
-      # '*' en el tercer campo significa que se ejecutará todos los días del mes
-      # '*' en el cuarto campo significa que se ejecutará todos los meses
-      # '*' en el quinto campo significa que se ejecutará todos los días de la semana
+    - cron: '*/5 * * * *' # Ejecutar cada 5 minutos
+    # '*' en el primer campo significa cada minuto
+    # '*' en el segundo campo significa cada hora
+    # '*' en el tercer campo significa que se ejecutará todos los días del mes
+    # '*' en el cuarto campo significa que se ejecutará todos los meses
+    # '*' en el quinto campo significa que se ejecutará todos los días de la semana
 
 jobs:
   build:
